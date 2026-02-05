@@ -1,0 +1,25 @@
+name: Stock Bot Daily Run
+
+on:
+  schedule:
+    # 한국 시간 기준 아침 7시 ~ 저녁 8시 (10분 간격)
+    - cron: '*/10 22-11 * * *' 
+  workflow_dispatch: # 수동 실행 버튼 (테스트용)
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.9'
+      - name: Install dependencies
+        run: |
+          pip install requests beautifulsoup4 yfinance pandas lxml
+      - name: Run Bot
+        env:
+          TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+        run: python bot.py
