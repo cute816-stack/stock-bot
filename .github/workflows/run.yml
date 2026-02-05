@@ -2,9 +2,9 @@ name: Stock Bot Daily Run
 
 on:
   schedule:
-    # 한국 시간 기준 아침 7시 ~ 저녁 8시 (10분 간격)
-    - cron: '*/10 22-11 * * *' 
-  workflow_dispatch: # 수동 실행 버튼 (테스트용)
+    # 한국 시간 기준 아침 7시 ~ 저녁 8시 사이 10분마다 (더 안정적인 설정)
+    - cron: '*/10 22,23,0,1,2,3,4,5,6,7,8,9,10,11 * * *'
+  workflow_dispatch: # 수동 실행 버튼
 
 jobs:
   build:
