@@ -9,7 +9,7 @@ TOKEN = os.environ.get('TELEGRAM_TOKEN')
 CHAT_ID = os.environ.get('TELEGRAM_CHAT_ID')
 
 # 감시 키워드 (가이드님 맞춤형)
-MY_KEYWORDS = ["계약", "최초", "최대", "독점", "특허", "수주", "M&A", "머스크", "엔비디아", "AI", "우주", "자율주행", "원전", "방산", "공급계약"]
+MY_KEYWORDS = ["공급계약", "사상 최대", "흑자전환", "수주", "M&A", "세계 최초"]
 
 def get_all_stocks():
     try:
